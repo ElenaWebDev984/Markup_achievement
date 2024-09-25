@@ -1,0 +1,260 @@
+/* ========== СБРОС СТИЛЕЙ ========== */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ========== ОБЩИЕ СТИЛИ ========== */
+
+html,
+body {
+    font-family: Rubik, sans-serif;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+.title {
+    color: #363940;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 43px;
+}
+
+.text {
+    color: #95A1BB;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.container {
+    /* Это стандартные стили для контейнера. Может меняться только свойство max-width и padding. */
+    height: 100%;
+    width: 100%;
+    max-width: 1170px; /* 1140 + padding 15*2 */
+    padding: 0 15px; /* отступы по бокам на мобилках */
+    margin-left: auto; /*  централизуем по горизонтали */
+    margin-right: auto; /*  централизуем по горизонтали */
+    border: 1px solid red; / ЧТОБЫ БЫЛО ЕГО ВИДНО, ПОТОМ УДАЛИМ */
+}
+
+/* ========== СТИЛИ ДЛЯ HEADER ==========*/
+
+header {
+    padding: 14px 0;
+    background: #0A61F7;
+}
+
+.menu-link {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px; /* 166.667% */
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+/*========== СТИЛИ ДЛЯ 1й СЕКЦИИ ==========*/
+
+.main-title {
+    color: #363940;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 68px;
+    margin-bottom: 30px;
+}
+
+.main .text {
+    margin-bottom: 40px;
+}
+
+.button {
+    width: 152px;
+    height: 51px;
+    border-radius: 4px;
+    background: #0A61F7;
+    font-size: 14px;
+    color: #FFF;
+    font-weight: 500;
+    line-height: 19.6px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+/*========== СТИЛИ ДЛЯ 2й СЕКЦИИ ==========*/
+
+.rates-section {
+    background-color: #F9FAFC;
+    padding: 100px 0;
+}
+
+.rates-section .title {
+    margin-bottom: 20px;
+}
+
+.rates-section .text {
+    margin-bottom: 40px;
+}
+
+.table {
+    border-collapse: collapse; /* убирает отступы между границами таблицы */
+}
+
+th,
+td { /* стилизуем по названию тега */
+    border: 1px solid #95A1BB; /* цвет, стиль и толщина границ таблицы */
+    width: 240px; /* ширина ячеки */
+    padding: 15px 0; /* отступы внутри ячеки */
+    text-align: center; /* выравниваем строчные элементы по центру.
+    <img> - строчно-блочны, так что тоже выравнивается по центру */
+}
+
+.table-title { 
+    color: #363940;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.table-subtitle {
+    color: #363940;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.table-subtitle.gray {
+    color: #95A1BB; /* применится, если у элемента будут эти оба класса */
+}
+
+.table-link {
+    color: #0A61F7;
+}
+
+.table-button {
+    width: 140px;
+    padding: 8px 0;
+    border-radius: 4px;
+    border: 1px solid #0A61F7;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 19.6px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #0A61F7;
+}
+
+.table-button.activ { /* эти своства применятся, если у кнопки будут эти оба класса */
+    background: #0A61F7;
+    color: #FFF;
+}
+
+.table-footer td {
+    padding: 30px 0;
+}
+
+/*========== СТИЛИ ДЛЯ 3й СЕКЦИИ ==========*/
+
+.create-account-section {
+    padding: 100px 0;
+}
+
+.create-account-section .title {
+    margin-bottom: 50px;
+}
+
+.create-account-section .text {
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.list-item {
+    list-style-image: url(./assets/images/Check.svg) /* наша иконка, вместо обычных маркеров-кружков 
+    ??? НЕ РАБОТАЕТ ???*/
+    margin-left: 30px; /* ??? НЕ РАБОТАЕТ ??? */
+    margin-bottom: 15px;
+    color: #363940; 
+}
+
+form {
+    width: 100%;
+    max-width: 500px;
+}
+
+input, select, fieldset, textarea {
+    border-radius: 4px;
+    border: 1px solid #95A1BB;
+    padding: 14px 15px;
+}
+
+input, select, fieldset, textarea, label, legend, input::placeholder, select::placeholder, textarea::placeholder {
+    color: #95A1BB;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    font-family: inherit; /* у всех этих элементов будет шрифт как у ближаЙшего родителя, в котором указано своЙство font-family */
+}
+
+input[type="text"] { /* обращаемся к элементу по классу */
+    width: 100%;
+}
+
+input[type="email"], input[type="password"], input[type="date"], select {
+    width: 230px;
+    height: 50px;
+}
+
+fieldset {
+    width: 100%;
+    padding: 30px 15px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: none; /* убираем возможность изменять размер поля для ввода текста */
+}
+
+form .button { 
+    width: 100%;
+}
+
+select {
+    background: url(./assets/images/Arrow-down.svg) no-repeat right 15px top 50%;
+    appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url(./assets/images/Calendar.svg) no-repeat;
+}
+
+/*=========== СТИЛИ ДЛЯ FOOTER ========== */
+
+footer {
+    background-color: #0A61F7;
+    text-align: center;
+    padding: 20px 0;
+}
+
+small {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #FFF;
+}
