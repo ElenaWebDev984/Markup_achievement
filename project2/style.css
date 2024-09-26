@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline; /* при наведении,  у ссылки появляется подчеркивание */
+}
+
 ul {
     list-style: none;
 }
@@ -25,6 +29,12 @@ ul {
 button {
     border: none;
     background-color: transparent;
+    cursor: pointer; /* делаем курсор-пальчик */
+    transition: 0.2s; /* добавляем плавности */
+}
+
+button:hover {
+    transform: translateY(-5px); /* чтобы кнопки при наведении немного подпрыгивали вверх */
 }
 
 .title {
@@ -59,6 +69,19 @@ header {
     background: #0A61F7;
 }
 
+.header-wrapper {
+    /* свойствами flexbox расположим эти элементы горизонтально по краям и вертикально по центру */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    /* расположим элементы меню друг за другом в строку (горизонтально) и сделаем между ними отступы */
+    display: flex;
+    gap: 24px;
+}
+
 .menu-link {
     color: #FFF;
     font-size: 12px;
@@ -70,6 +93,13 @@ header {
 
 /*========== СТИЛИ ДЛЯ 1й СЕКЦИИ ==========*/
 
+.main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 800px;
+}
+
 .main-title {
     color: #363940;
     font-size: 58px;
@@ -80,6 +110,7 @@ header {
 
 .main .text {
     margin-bottom: 40px;
+    max-width: 380px;
 }
 
 .button {
@@ -95,11 +126,21 @@ header {
     text-transform: uppercase;
 }
 
+.main-img {
+    align-self: flex-end; /* прижимает картинку к нижнему краю родителя */
+}
+
 /*========== СТИЛИ ДЛЯ 2й СЕКЦИИ ==========*/
 
 .rates-section {
     background-color: #F9FAFC;
     padding: 100px 0;
+}
+
+.rates-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rates-section .title {
@@ -114,8 +155,7 @@ header {
     border-collapse: collapse; /* убирает отступы между границами таблицы */
 }
 
-th,
-td { /* стилизуем по названию тега */
+th, td { /* стилизуем по названию тега */
     border: 1px solid #95A1BB; /* цвет, стиль и толщина границ таблицы */
     width: 240px; /* ширина ячеки */
     padding: 15px 0; /* отступы внутри ячеки */
@@ -175,6 +215,11 @@ td { /* стилизуем по названию тега */
     padding: 100px 0;
 }
 
+.account-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
 .create-account-section .title {
     margin-bottom: 50px;
 }
@@ -185,9 +230,9 @@ td { /* стилизуем по названию тега */
 }
 
 .list-item {
-    list-style-image: url(./assets/images/Check.svg) /* наша иконка, вместо обычных маркеров-кружков 
-    ??? НЕ РАБОТАЕТ ???*/
-    margin-left: 30px; /* ??? НЕ РАБОТАЕТ ??? */
+    list-style-image: url("./assets/images/Check.svg"); /* наша иконка, вместо обычных маркеров-кружков 
+    !!! НЕ РАБОТАЕТ БЕЗ КАВЫЧЕК !!!*/
+    margin-left: 30px; 
     margin-bottom: 15px;
     color: #363940; 
 }
@@ -195,6 +240,9 @@ td { /* стилизуем по названию тега */
 form {
     width: 100%;
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 input, select, fieldset, textarea {
@@ -218,11 +266,25 @@ input[type="text"] { /* обращаемся к элементу по класс
 input[type="email"], input[type="password"], input[type="date"], select {
     width: 230px;
     height: 50px;
+    /* чтобы они поделили между собой все свободное по ширине пространство */
+    flex-grow: 1;
+}
+
+.stack,
+fieldset {
+    display: flex;
+    column-gap: 30px;
 }
 
 fieldset {
     width: 100%;
     padding: 30px 15px;
+}
+
+.fields-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* будут скидываться вниз, когда не помещаются в родителе */
+    gap: 20px;
 }
 
 textarea {
@@ -242,6 +304,10 @@ select {
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     background: url(./assets/images/Calendar.svg) no-repeat;
+}
+
+input[type="radio"], input[type="checkbox"], input[type="date"], select {
+    cursor: pointer; /* курсор-пальчик */
 }
 
 /*=========== СТИЛИ ДЛЯ FOOTER ========== */
