@@ -97,7 +97,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 800px;
+    min-height: 800px; /* меняем высоту на минимальную высоту для медиазапросов */
 }
 
 .main-title {
@@ -324,3 +324,47 @@ small {
     line-height: 22px;
     color: #FFF;
 }
+
+/* Начнем адаптировать наш макет под планшетную версию, для экранов шириной 768px - 1400px. */
+
+@media screen and (max-width: 1400px) {
+    .main-wrapper {
+        flex-direction: column; /* Поменяем расположение элементов в .main-wrapper с помощью flex-direction: column */
+    }
+
+    .main-info {
+        align-self: flex-start; /* блок с текстом пододвинем влево */
+        margin: 100px 0 80px;
+    }
+
+    .main-img {
+        align-self: center; /* изображение по центру */
+    }
+
+    .table {
+        width: 940px; /* захардкодиь ширину таблицы,  чтобы ширина таблицы не изменялась, когда экран становится меньше, и ее можно было бы скролить горизонтально отдельно от других элементов */
+    }
+
+    .table-wrapper {
+        overflow-x: auto; /* Зададим для  горизонтальный скролл */
+        width: 100%; /* чтобы свойство overflow работало, у элемента, где оно указано, обязательно должны быть размеры (свойства width и/или height) */
+        max-width: 940px; /* для того, чтобы все было резиновым и без скачков, зададим для .table-wrapper еще максимальную ширину, равную ширине таблицы */
+    }
+    .account-wrapper {
+        flex-direction: column;
+        gap: 70px; /* добавим отступ */
+    }
+
+    .create-account-section .text {
+        max-width: unset; /* отменяем максимальную ширину */
+    }
+
+    form {
+        align-self: center;
+    }
+    
+}
+
+/* Теперь перейдем к адаптиву макета под мобильную версию, для экранов шириной 375px - 576px */
+
+
