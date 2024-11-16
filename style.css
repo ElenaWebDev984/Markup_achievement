@@ -12,6 +12,7 @@ html,
 body {
     font-family: Rubik, sans-serif;
     font-style: normal;
+    min-width: 375px; /* добавим минимальную ширину, равную самому маленькому устройству, под которое мы делаем адаптив, чтобы при разрешении меньше, чем 375px наша верстка начинала масштабироваться и ничего не "ломалось" */
 }
 
 a {
@@ -59,7 +60,7 @@ button:hover {
     padding: 0 15px; /* отступы по бокам на мобилках */
     margin-left: auto; /*  централизуем по горизонтали */
     margin-right: auto; /*  централизуем по горизонтали */
-    border: 1px solid red; / ЧТОБЫ БЫЛО ЕГО ВИДНО, ПОТОМ УДАЛИМ */
+    /* border: 1px solid red; / ЧТОБЫ БЫЛО ЕГО ВИДНО, ПОТОМ УДАЛИМ */
 }
 
 /* ========== СТИЛИ ДЛЯ HEADER ==========*/
@@ -91,11 +92,15 @@ header {
     text-transform: uppercase;
 }
 
+.menu-icon {
+    display: none; /* Изначально для desktop версии бургер-меню мы скроем */
+}
+
 /*========== СТИЛИ ДЛЯ 1й СЕКЦИИ ==========*/
 
 .main-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     min-height: 800px; /* меняем высоту на минимальную высоту для медиазапросов */
 }
@@ -128,6 +133,9 @@ header {
 
 .main-img {
     align-self: flex-end; /* прижимает картинку к нижнему краю родителя */
+    /* !!! Изображение можно сразу сделать резиновым, чтобы не изменять ему размер в медиазапросах!!! */
+    max-width: 656px;
+    width: 100%;
 }
 
 /*========== СТИЛИ ДЛЯ 2й СЕКЦИИ ==========*/
@@ -149,6 +157,7 @@ header {
 
 .rates-section .text {
     margin-bottom: 40px;
+    text-align: center; 
 }
 
 .table {
@@ -330,6 +339,7 @@ small {
 @media screen and (max-width: 1400px) {
     .main-wrapper {
         flex-direction: column; /* Поменяем расположение элементов в .main-wrapper с помощью flex-direction: column */
+        min-height: auto;
     }
 
     .main-info {
@@ -366,5 +376,37 @@ small {
 }
 
 /* Теперь перейдем к адаптиву макета под мобильную версию, для экранов шириной 375px - 576px */
+
+@media screen and (max-width: 576px)  {
+    .menu {
+        display: none; /* скроем основное меню */
+    }
+
+    .menu-icon {
+        display: block; /* покажем бургер меню */
+    }
+    .main-info {
+        margin: 60px 0;
+    }
+
+    .main-title {
+        font-size: 52px;
+        line-height: 60px;
+    }
+
+    .account-wrapper {
+        gap: 60px;
+    }
+
+    label {
+        white-space: nowrap;
+    }
+
+    fieldset {
+        flex-wrap: wrap;
+        row-gap: 20px; /* чтобы строки не прижимались друг к другу */
+    }
+    
+}
 
 
